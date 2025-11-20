@@ -37,7 +37,9 @@ const Player = () => {
             {/* Track Info */}
             <div className="track-info">
                 <div className="album-art">
-                    <div className="album-art-placeholder"></div>
+                    <div className="album-art-placeholder">
+                    <img src={currentTrack.cover} alt={currentTrack.title} className="w-full h-full object-cover" />
+                    </div>
                 </div>
                 <div className="track-details">
                     <a href="#" className="track-name">{currentTrack.title}</a>
