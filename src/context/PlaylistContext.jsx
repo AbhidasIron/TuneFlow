@@ -17,15 +17,17 @@ export const PlaylistProvider = ({ children }) => {
         fetchTracks();
     }, []);
 
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
     const fetchTracks = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/tracks');
+            const response = await fetch(`${API_BASE_URL}/api/tracks`);
             if (response.ok) {
                 const data = await response.json();
                 // Add full URL to audio
                 const tracksWithUrl = data.map(track => ({
                     ...track,
-                    url: `http://localhost:3000${track.url}`
+                    url: `${API_BASE_URL}${track.url}`
                 }));
                 setAllTracks(tracksWithUrl);
             }
