@@ -63,8 +63,8 @@ button {
 .main-content {
   flex: 1;
   margin-left: var(--sidebar-width);
-  margin-bottom: var(--player-height);
-  height: calc(100vh - var(--player-height));
+  margin-bottom: 0;
+  height: 100vh;
   overflow-y: auto;
   transition: margin-left 0.3s ease;
 }
@@ -80,9 +80,12 @@ button {
   position: fixed;
   left: 0;
   top: 0;
-  padding-bottom: var(--player-height);
+  padding-bottom: 0;
   z-index: 40;
   transition: transform 0.3s ease;
+}
+.app-container.player-active .sidebar {
+  padding-bottom: var(--player-height);
 }
 
 .sidebar-header {
@@ -217,7 +220,7 @@ button {
 .bottom-nav {
   display: none;
   position: fixed;
-  bottom: var(--player-height);
+  bottom: 0;
   left: 0;
   right: 0;
   height: var(--bottom-nav-height);
@@ -1330,6 +1333,11 @@ button {
 
   .main-content {
     margin-left: 0;
+    margin-bottom: var(--bottom-nav-height);
+    height: calc(100vh - var(--bottom-nav-height));
+  }
+
+  .app-container.player-active .main-content {
     margin-bottom: calc(var(--player-height) + var(--bottom-nav-height));
     height: calc(100vh - var(--player-height) - var(--bottom-nav-height));
   }
